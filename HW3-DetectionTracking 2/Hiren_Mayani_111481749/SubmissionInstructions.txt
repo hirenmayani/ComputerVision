@@ -1,0 +1,2 @@
+1. Do not submit the input video files
+2. Put all codes into "detection_tracking.py" and put this .py file under Source

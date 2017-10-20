@@ -1,0 +1,55 @@
+import cv2
+import numpy as np
+from matplotlib import pyplot
+
+
+def displayImg(title, img):
+    cv2.imshow(title,img.astype('uint8'))
+    cv2.waitKey()
+    cv2.destroyAllWindows()
+
+
+def myEqualizeHist(img):
+    channels = cv2.split(img)
+
+    newChannels = []
+    for channel in channels:
+        hist, bins = np.histogram(channel, 256)
+        cdf = hist.cumsum()
+        cdf = (cdf - cdf.min()) / (cdf.max() - cdf.min()) * 255
+        newChannels.append(cdf[channel])
+
+    newImg = cv2.merge((newChannels[0], newChannels[1], newChannels[2]))
+
+    return newImg
+
+def inbuiltEqualizeHist(img):
+    b, g, r = cv2.split(img)
+    red = cv2.equalizeHist(r)
+    green = cv2.equalizeHist(g)
+    blue = cv2.equalizeHist(b)
+    return cv2.merge((blue, green, red))
+
+
+def inbuiltEqualizeHist1(img):
+    img_yuv = cv2.cvtColor(img, cv2.COLOR_BGR2YUV)
+    img_yuv[:, :, 0] = cv2.equalizeHist(img_yuv[:, :, 0])
+    return cv2.cvtColor(img_yuv, cv2.COLOR_YUV2BGR)
+
+
+img = cv2.imread('CVmeme.jpg')
+displayImg("Original image", img)
+
+equ = inbuiltEqualizeHist1(img)
+displayImg("using inbuilt function YUV", equ)
+
+equ = inbuiltEqualizeHist(img)
+displayImg("using inbuilt function RGB", equ)
+
+myEqu = myEqualizeHist(img)
+displayImg("using my function", myEqu)
+
+pyplot.hist(img.flatten(), bins=256, color = 'Grey')
+pyplot.hist(myEqu.flatten(), bins=256, color = 'Green')
+pyplot.legend(('Original','New'), loc = 'upper left')
+pyplot.show()

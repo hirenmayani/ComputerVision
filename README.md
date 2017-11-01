@@ -12,9 +12,9 @@
   - Image Blending
 
 ### Task02-ImageWarping
-  Image Alignment, Panoramas
-  homographies and perspective warping on a common plane (3 images).
-  cylindrical warping (many images).
+  -Image Alignment, Panoramas
+    -homographies and perspective warping on a common plane (3 images).
+    -cylindrical warping (many images).
 
 ### Task03-ObjectDetectionFromVideo
   - Detect the face in the first frame of the movie Using pre-trained Viola-Jones detector

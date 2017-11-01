@@ -25,7 +25,7 @@
     - Optical Flow tracker
  
 ### Task4-Segmentation
-    - perform semi-automatic binary segmentation based on SLIC superpixels and graph-cuts:
+    - perform semi-automatic binary segmentation based on SLIC superpixels and graph-cuts
       - Given an image and sparse markings for foreground and background
       - Calculate SLIC over image
       - Calculate color histograms for all superpixels

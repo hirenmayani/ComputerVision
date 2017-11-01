@@ -8,7 +8,7 @@
   - HighPass Filter
   - LowPass Filter
   - Histogram equalizer
-	-  Deconvolution
+  -  Deconvolution
   - Image Blending
 
 ### Task02-ImageWarping

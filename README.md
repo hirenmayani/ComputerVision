@@ -38,3 +38,8 @@
     - recalculate only the FG-BG histograms,
     - construct the graph and get a segmentation from the max-flow graph-cut, 
     - show the result immediately to the user (should be fast enough).
+
+### Task5-Structured Lights
+
+### Task6-CNN
+  - Digit recognition using CNN
